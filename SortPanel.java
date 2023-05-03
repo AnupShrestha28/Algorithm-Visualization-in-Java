@@ -44,7 +44,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     public void SortIsFinished()
     {
         myFrame.endRunGUI();
-        lastUpdate = new Date(0); // this sets the last update to 12:00am, 1/1/1970
+        lastUpdate = new Date(0);
     }
 
     public void setDelayMS(int delay)
@@ -78,7 +78,7 @@ public class SortPanel extends JPanel implements AlgorithmDelegate
     {
         Date now = new Date();
         visual_count++;
-        if ((now.getTime() - lastUpdate.getTime())>17) //33 ms = 1/30 second
+        if ((now.getTime() - lastUpdate.getTime())>17) 
         {
             getCanvas();
             if (myCanvas== null)

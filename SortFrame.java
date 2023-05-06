@@ -24,7 +24,8 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     // Arrays for GUI
     private final String[] statusMessages = {"Array Sorted","Has Adjacent Duplicates","Array Unsorted"};
     private JRadioButton[] sortTypeButtons;
-    private final String[] sortNames = {"Bubble","Selection","Insertion"};
+    private final String[] sortNames = {"Bubble","Selection","Insertion",
+    "Merge","Quick"};
     private final int [] possibleNValues = {3,4,5,6,7,8,9,10,15,20,50,100,500};
 
     //GUI items

@@ -5,7 +5,6 @@ public abstract class SortAlgorithm extends Thread
     protected AlgorithmDelegate delegate;
     protected int[] array;
     protected boolean keepRunning = true;
-
  
     public SortAlgorithm(AlgorithmDelegate del, int[] array)
     {

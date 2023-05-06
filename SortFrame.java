@@ -24,13 +24,14 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     // Arrays for GUI
     private final String[] statusMessages = {"Array Sorted","Has Adjacent Duplicates","Array Unsorted"};
     private JRadioButton[] sortTypeButtons;
-    private final String[] sortNames = {"Bubble","Selection","Insertion"};
-    private final int [] possibleNValues = {3,4,5,6,7,8,9,10,15,20,50,100};
+    private final String[] sortNames = {"Bubble","Selection","Insertion",
+    "Merge","Quick"};
+    private final int [] possibleNValues = {3,4,5,6,7,8,9,10,15,20,50,100,500};
 
     //GUI items
     private JComboBox<Integer> nMenu;
     private JButton runButton,resetButton;
-    // private JSlider delaySlider;
+    private JSlider delaySlider;
     private JLabel statusLabel;
     private JLabel timeLabel;
     private JLabel latestRunLabel;
@@ -94,21 +95,21 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         // display the delay slider.
 
 
-        // delaySlider = new JSlider(JSlider.VERTICAL,0,20,1);
-        // delaySlider.addChangeListener(this);
-        // delaySlider.setMajorTickSpacing(1);
-        // delaySlider.setPaintTicks(true);
+        delaySlider = new JSlider(JSlider.VERTICAL,0,20,1);
+        delaySlider.addChangeListener(this);
+        delaySlider.setMajorTickSpacing(1);
+        delaySlider.setPaintTicks(true);
         Hashtable<Integer,JLabel> labelTable = new Hashtable<>();
         labelTable.put(0,new JLabel("0"));
         labelTable.put(5,new JLabel("5"));
         labelTable.put(10,new JLabel("10"));
         labelTable.put(15,new JLabel("15"));
         labelTable.put(20,new JLabel("20"));
-        // delaySlider.setLabelTable(labelTable);
-        // delaySlider.setPaintLabels(true);
-        // delaySlider.setSnapToTicks(true);
-        // delaySlider.setBorder(new TitledBorder("Delay"));
-        // nameDelayBox.add(delaySlider);
+        delaySlider.setLabelTable(labelTable);
+        delaySlider.setPaintLabels(true);
+        delaySlider.setSnapToTicks(true);
+        delaySlider.setBorder(new TitledBorder("Delay"));
+        nameDelayBox.add(delaySlider);
         leftPanel.add(nameDelayBox);
 
         // display the run/cancel and reset buttons.
@@ -153,7 +154,7 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
         nameDelayBox.setAlignmentX(Component.LEFT_ALIGNMENT);
         runResetPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         nMenu.setAlignmentX(Component.LEFT_ALIGNMENT);
-        // delaySlider.setAlignmentY(Component.TOP_ALIGNMENT);
+        delaySlider.setAlignmentY(Component.TOP_ALIGNMENT);
         statusLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         timeLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         latestRunLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -337,11 +338,11 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
     @Override
     public void stateChanged(ChangeEvent e)
     {
-//         if (e.getSource()==delaySlider)
-//         {
-// //            System.out.println(delaySlider.getValue());
-//             rightPanel.setDelayMS(delaySlider.getValue());
-//         }
+        if (e.getSource()==delaySlider)
+        {
+           System.out.println(delaySlider.getValue());
+            rightPanel.setDelayMS(delaySlider.getValue());
+        }
     }
 
     class ResizeListener extends ComponentAdapter

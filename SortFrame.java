@@ -27,9 +27,6 @@ public class SortFrame extends JFrame implements ActionListener, ChangeListener
 
     private final String[] sortNames = {"Bubble","Selection","Insertion","Merge","Quick"};
 
-    private final String[] sortNames = {"Bubble","Selection","Insertion",
-    "Merge","Quick"};
-
     private final int [] possibleNValues = {3,4,5,6,7,8,9,10,15,20,50,100,500};
 
     //GUI items
